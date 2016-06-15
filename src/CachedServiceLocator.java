@@ -39,6 +39,10 @@ public class CachedServiceLocator implements ServiceLocator {
 
     @Override
     public Object getObject(String name) throws LocatorError {
+        if (hm2.containsKey(name)) return hm2.get(name);
+        if (hm.containsKey(name)){
+            
+        }
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
