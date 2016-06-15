@@ -12,4 +12,11 @@ package servicelocator;
  */
 public class LocatorError extends Exception{
     
+    public LocatorError(){
+        
+    }
+    
+    public LocatorError (Exception e){
+        
+    }
 }
