@@ -41,9 +41,12 @@ public class CachedServiceLocator implements ServiceLocator {
     public Object getObject(String name) throws LocatorError {
         if (hm2.containsKey(name)) return hm2.get(name);
         if (hm.containsKey(name)){
-            
+            Factory fcty = hm.get(name);
+            Object o = fcty.create(this);
+            this.setConstant(name, o);
+            return o;
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new LocatorError();
     }
     
 }
