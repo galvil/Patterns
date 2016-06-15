@@ -1,6 +1,5 @@
 package servicelocator2;
 
-import servicelocator.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,5 +12,12 @@ import servicelocator.*;
  * @author Roger & Daniel
  */
 public class LocatorError extends Exception{
+    
+    public LocatorError (){
+        super();
+    }
+    public LocatorError(Exception e){
+        super();
+    }
     
 }
