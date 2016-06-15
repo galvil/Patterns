@@ -6,7 +6,7 @@
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class ImplementationC1 implements InterfaceC{
     private String s;

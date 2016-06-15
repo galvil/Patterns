@@ -6,7 +6,7 @@
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class ImplementationB1 implements InterfaceB{
     private InterfaceD d;	
