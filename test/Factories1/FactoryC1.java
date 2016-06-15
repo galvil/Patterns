@@ -4,11 +4,22 @@
  * and open the template in the editor.
  */
 package Factories1;
-
+import Interfaces.*;
+import servicelocator.*;
+import Implementations1.*;
 /**
  *
  * @author Roger & Daniel
  */
-public class FactoryC1 {
+public class FactoryC1 implements Factory {
     
+    @Override
+    public Object create(ServiceLocator s) throws LocatorError {
+        try{
+            String strng = (String) s.getObject("C");
+            return new ImplementationC1(strng);
+        }catch (ClassCastException ex){
+            throw new LocatorError(ex);
+        }
+    }
 }
