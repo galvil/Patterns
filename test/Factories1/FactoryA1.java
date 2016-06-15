@@ -2,7 +2,7 @@ package Factories1;
 
 
 import Implementations1.ImplementationA1;
-import .*;
+import Interfaces.*;
 import servicelocator.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +12,7 @@ import servicelocator.*;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 
 public class FactoryA1 implements Factory {

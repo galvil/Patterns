@@ -7,7 +7,7 @@ package Factories2;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class FactoryD1 {
     

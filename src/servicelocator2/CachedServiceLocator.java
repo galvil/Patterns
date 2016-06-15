@@ -40,7 +40,7 @@ public class CachedServiceLocator implements ServiceLocator {
 
     @Override
     public <T> T getObject(Class<T> klass) throws LocatorError {
-        if (mapa.containsKey(klass)) return  mapa.get(klass);
+        if (mapa.containsKey(klass)) return (T) mapa.get(klass);
         throw new LocatorError();
     }
     

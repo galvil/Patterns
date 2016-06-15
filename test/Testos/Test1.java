@@ -7,7 +7,7 @@ package Testos;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class Test1 {
     
