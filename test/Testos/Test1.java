@@ -47,13 +47,17 @@ public class Test1 {
     
     /*Testos de SimpleServiceLocator començats amb SIM*/
     @Test
-    public void SIMAfegirAmbSetServiceCorrectament(){
-    
+    public void SIMAfegirAmbSetServiceCorrectament() throws LocatorError{
+        ssl.setService("fA1", fA1);
+        ssl.setService("fB1", fB1);
+        ssl.setService("fC1", fC1);
+        ssl.setService("fD1", fD1);
     }
     
     @Test (expected = LocatorError.class)
-    public void SIMAfegirAmbSetServiceAfegit(){
-        
+    public void SIMAfegirAmbSetServiceAfegit() throws LocatorError{
+        ssl.setService("fA1", fA1);
+        ssl.setService("fA1", fA1);
     }
     
     @Test
