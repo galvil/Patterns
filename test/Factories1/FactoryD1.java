@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Factories1;
 
 /**
  *
- * @author Roger & Daniel
+ * @author galvil
  */
-public class ImplementationC1 implements InterfaceC{
-    private String s;
-    public ImplementationC1(String s){
-        this.s = s;
-    }
+public class FactoryD1 {
+    
 }

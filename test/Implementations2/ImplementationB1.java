@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Implementations2;
 
 /**
  *
- * @author Roger & Daniel
+ * @author galvil
  */
-public class ImplementationB1 implements InterfaceB{
-    private InterfaceD d;	
-    public ImplementationB1(InterfaceD d){
-    this.d = d;
-    }
+public class ImplementationB1 {
+    
 }
