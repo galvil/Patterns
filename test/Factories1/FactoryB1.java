@@ -10,7 +10,7 @@ import Interfaces.*;
 import servicelocator.*;
 /**
  *
- * @author Jaume
+ * @author Roger & Daniel
  */
 public class FactoryB1 implements Factory {
     @Override

@@ -1,5 +1,7 @@
 package Implementations1;
 
+import Interfaces.InterfaceD;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

@@ -12,7 +12,7 @@ import servicelocator.*;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 
 public class FactoryA1 implements Factory {
