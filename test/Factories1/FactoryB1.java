@@ -6,7 +6,7 @@ package Factories1;
  * and open the template in the editor.
  */
 import Implementations1.ImplementationB1;
-import .*;
+import Interfaces.*;
 import servicelocator.*;
 /**
  *
