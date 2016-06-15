@@ -13,39 +13,33 @@ import java.util.HashMap;
  */
 public class CachedServiceLocator implements ServiceLocator {
 
-    HashMap <String,Factory> hm;
-    HashMap <String,Object> hm2;
+    HashMap <String,Object> hm;
     
     public CachedServiceLocator(){
         hm = new HashMap<>();
-        hm2 = new HashMap<>();
     }
     
     @Override
     public void setService(String name, Factory factory) throws LocatorError {
 
         if (hm.containsKey(name)) throw new LocatorError();
-        else hm.put(name, factory);
-    
+        else {
+            Object o = factory.create(this);
+            this.setConstant(name, o);
+        }
     }
 
     @Override
     public void setConstant(String name, Object value) throws LocatorError {
         
-        if(hm2.containsKey(name)) throw new LocatorError();
-        else hm2.put(name,value);
-        
+        if(hm.containsKey(name)) throw new LocatorError();
+        else hm.put(name,value);
     }
 
     @Override
     public Object getObject(String name) throws LocatorError {
-        if (hm2.containsKey(name)) return hm2.get(name);
-        if (hm.containsKey(name)){
-            Factory fcty = hm.get(name);
-            Object o = fcty.create(this);
-            this.setConstant(name, o);
-            return o;
-        }
+        
+        if (hm.containsKey(name)) return hm.get(name);
         throw new LocatorError();
     }
     

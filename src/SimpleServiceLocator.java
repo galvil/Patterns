@@ -25,6 +25,7 @@ public class SimpleServiceLocator implements ServiceLocator {
     public void setService(String name, Factory factory) throws LocatorError {
 
         if (hm.containsKey(name)) throw new LocatorError();
+        if (hm2.containsKey(name)) throw new LocatorError();
         else hm.put(name, factory);
     
     }
@@ -32,7 +33,8 @@ public class SimpleServiceLocator implements ServiceLocator {
     @Override
     public void setConstant(String name, Object value) throws LocatorError {
         
-        if(hm2.containsKey(name)) throw new LocatorError();
+        if (hm2.containsKey(name)) throw new LocatorError();
+        if (hm.containsKey(name)) throw new LocatorError();
         else hm2.put(name,value);
         
     }
