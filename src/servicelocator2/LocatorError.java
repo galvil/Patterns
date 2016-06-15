@@ -10,7 +10,7 @@ import servicelocator.*;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class LocatorError extends Exception{
     

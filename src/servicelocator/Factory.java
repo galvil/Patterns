@@ -8,7 +8,7 @@ package servicelocator;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public interface Factory {
     

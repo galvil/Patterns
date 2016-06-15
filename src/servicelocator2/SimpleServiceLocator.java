@@ -7,7 +7,7 @@ package servicelocator2;
 
 /**
  *
- * @author Jaume
+ * @author Roger & Daniel
  */
 public class SimpleServiceLocator implements ServiceLocator {
 

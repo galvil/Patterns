@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Jaume
+ * @author Roger & Daniel
  */
 public interface InterfaceD {
     

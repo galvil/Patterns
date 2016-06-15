@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author galvil
+ * @author Roger & Daniel
  */
 public class SimpleServiceLocator implements ServiceLocator {
 
