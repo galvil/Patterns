@@ -39,7 +39,13 @@ public class SimpleServiceLocator implements ServiceLocator {
 
     @Override
     public Object getObject(String name) throws LocatorError {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (hm2.containsKey(name)) return hm2.get(name);
+        if (hm.containsKey(name)){
+            Factory fctry = hm.get(name);
+            Object o = fctry.create(this);
+            return o;
+        }
+        throw new LocatorError();
     }
     
 }
