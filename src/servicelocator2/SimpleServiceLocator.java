@@ -15,7 +15,7 @@ import java.util.Map;
 public class SimpleServiceLocator implements ServiceLocator {
     
     private Map<Class,Factory> mapaFactories;
-    private Map<Class,Object> mapaConstants;
+    private Map<Class,Object> mapaConstants; // fuck this shit
 
      public SimpleServiceLocator(){
         mapaFactories = new HashMap<>();
@@ -26,7 +26,7 @@ public class SimpleServiceLocator implements ServiceLocator {
     @Override
     public <T> void setService(Class<T> klass, Factory<T> factory) throws LocatorError {
         
-        if(mapaFactories.containsKey(klass)) throw new LocatorError();
+        if (mapaFactories.containsKey(klass)) throw new LocatorError();
         if (mapaConstants.containsKey(klass)) throw new LocatorError();
         else mapaFactories.put(klass, factory);
             
@@ -35,7 +35,7 @@ public class SimpleServiceLocator implements ServiceLocator {
     @Override
     public <T> void setConstant(Class<T> klass, T value) throws LocatorError {
 
-        if(mapaFactories.containsKey(klass)) throw new LocatorError();
+        if (mapaFactories.containsKey(klass)) throw new LocatorError();
         if (mapaConstants.containsKey(klass)) throw new LocatorError();
         else mapaConstants.put(klass,value);
     
@@ -43,7 +43,13 @@ public class SimpleServiceLocator implements ServiceLocator {
 
     @Override
     public <T> T getObject(Class<T> klass) throws LocatorError {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (mapaConstants.containsKey(klass)) return (T) mapaConstants.get(klass);
+        if (mapaFactories.containsKey(klass)){
+            Factory<T> fctry = mapaFactories.get(klass);
+            T o = fctry.create(this);
+            return  o;
+        }
+        throw new LocatorError();
     }
     
 }
