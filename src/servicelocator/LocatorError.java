@@ -1,3 +1,5 @@
+package servicelocator;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +10,6 @@
  *
  * @author galvil
  */
-public interface Factory {
+public class LocatorError extends Exception{
     
-    Object create(ServiceLocator s1) throws LocatorError;
 }

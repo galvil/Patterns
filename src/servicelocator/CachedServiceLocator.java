@@ -1,3 +1,5 @@
+package servicelocator;
+
 
 import java.util.HashMap;
 
@@ -11,43 +13,35 @@ import java.util.HashMap;
  *
  * @author galvil
  */
-public class SimpleServiceLocator implements ServiceLocator {
+public class CachedServiceLocator implements ServiceLocator {
 
-    HashMap <String,Factory> hm;
-    HashMap <String,Object> hm2;
+    HashMap <String,Object> hm;
     
-    public SimpleServiceLocator(){
+    public CachedServiceLocator(){
         hm = new HashMap<>();
-        hm2 = new HashMap<>();
     }
     
     @Override
     public void setService(String name, Factory factory) throws LocatorError {
 
         if (hm.containsKey(name)) throw new LocatorError();
-        if (hm2.containsKey(name)) throw new LocatorError();
-        else hm.put(name, factory);
-    
+        else {
+            Object o = factory.create(this);
+            this.setConstant(name, o);
+        }
     }
 
     @Override
     public void setConstant(String name, Object value) throws LocatorError {
         
-        if (hm2.containsKey(name)) throw new LocatorError();
-        if (hm.containsKey(name)) throw new LocatorError();
-        else hm2.put(name,value);
-        
+        if(hm.containsKey(name)) throw new LocatorError();
+        else hm.put(name,value);
     }
 
     @Override
     public Object getObject(String name) throws LocatorError {
         
-        if (hm2.containsKey(name)) return hm2.get(name);
-        if (hm.containsKey(name)){
-            Factory fctry = hm.get(name);
-            Object o = fctry.create(this);
-            return o;
-        }
+        if (hm.containsKey(name)) return hm.get(name);
         throw new LocatorError();
     }
     
