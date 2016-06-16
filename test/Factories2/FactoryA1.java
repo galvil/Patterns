@@ -11,11 +11,15 @@ import servicelocator2.*;
  *
  * @author Roger & Daniel
  */
-public class FactoryA1 implements Factory{
+public class FactoryA1 implements Factory<InterfaceA>{
 
     @Override
-    public Object create(ServiceLocator s1) throws LocatorError {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public InterfaceA create(ServiceLocator s) throws LocatorError {
+
+        InterfaceB b = s.getObject(InterfaceB.class);
+        InterfaceC c = s.getObject(InterfaceC.class);
+        return new ImplementationA1(b, c);
+
     }
     
 }
