@@ -1,7 +1,7 @@
 package Factories1;
 
 
-import Implementations1.ImplementationA1;
+import Implementations.ImplementationA1;
 import Interfaces.*;
 import servicelocator.*;
 /*

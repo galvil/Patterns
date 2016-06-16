@@ -5,9 +5,6 @@
  */
 package Testos;
 import Factories1.*;
-import Implementations1.*;
-import java.util.HashMap;
-import java.util.Map;
 import servicelocator.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -108,22 +105,36 @@ public class Test1 {
         objectB2 = ssl.getObject("B");
         objectC2 = ssl.getObject("C");
         objectD2 = ssl.getObject("D");
-        assertNotEquals("Les instàncies creades de fA1 són diferents", objectA1, objectA2);
+       /* assertNotEquals("Les instàncies creades de fA1 són diferents", objectA1, objectA2);
         assertNotEquals("Les instàncies creades de fB1 són diferents", objectB1, objectB2);
         assertNotEquals("Les instàncies creades de fC1 són diferents", objectC1, objectC2);
         assertNotEquals("Les instàncies creades de fD1 són diferents", objectD1, objectD2);
+        */
+        assertFalse("Les instàncies creades de fA1 són diferents",objectA1.equals(objectA2));
+        assertFalse("Les instàncies creades de fB1 són diferents",objectB1.equals(objectB2));
+        assertFalse("Les instàncies creades de fC1 són diferents",objectC1.equals(objectC2));
+        assertFalse("Les instàncies creades de fD1 són diferents",objectD1.equals(objectD2));
+        
+        
     }
     
     
     /*Testos de CachedServiceLocator començats amb C*/
     @Test
     public void CAfegirAmbSetServiceCorrectament() throws LocatorError{
-//    afegirAmbSetService(csl);
+       afegirAmbSetService(csl);
 //FALTA AFEGIR COSES AL SERVICElOCATOR PER A QUE FUNCIONI LA LINIA COMENTADA
     }
     
     @Test (expected = LocatorError.class)
-    public void CAfegirAmbSetServiceAfegit(){
+    public void CAfegirAmbSetServiceAfegit() throws LocatorError{
+
+        
+        csl.setService("fA1", fA1);
+        csl.setService("fA1", fA1);
+       // afegirAmbSetService(csl);
+       // afegirAmbSetService(csl);
+
 // s'HA DE TINDRE EN COMTE QUE AL CREAR OBJECTES ES NECESSITEN COSES DINS EL ServiceLocator, igual que a dalt.
 // ESTARIA BÑE FER UNA FUNCIÓ AUXILIAR QUE INICIALITZES EL ServiceLocator AMB AQUESTS PARÀMETRES
 // UN COP TINGUEM TOTS ELS MÈTODES AUXILIARS CREC QUE ES PODRIEN PASSAR TOTS A UN ARXIU DIFERENT PER NO TINDRE-HO TOT 
@@ -155,6 +166,9 @@ public class Test1 {
     public void CgetObjectInstanciaCorrectaFactory(){
 //FALTA AFEGIR COSES AL SERVICElOCATOR PER A QUE FUNCIONI EL MÈTODE create    
     }
+
+
+
 //    mètodes auxiliars
     public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
         s1.setService("fA1", fA1);

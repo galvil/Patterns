@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package Factories1;
+import Implementations.ImplementationD1;
 import Interfaces.*;
 import servicelocator.*;
-import Implementations1.*;
 /**
  *
  * @author Roger & Daniel

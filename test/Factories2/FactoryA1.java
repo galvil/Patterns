@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package Factories2;
-
+import Implementations.ImplementationA1;
+import Interfaces.*;
+import servicelocator2.*;
 /**
  *
  * @author Roger & Daniel
  */
-public class FactoryA1 {
+public class FactoryA1 implements Factory{
+
+    @Override
+    public Object create(ServiceLocator s1) throws LocatorError {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

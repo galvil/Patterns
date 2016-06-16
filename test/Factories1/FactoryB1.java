@@ -5,7 +5,7 @@ package Factories1;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import Implementations1.ImplementationB1;
+import Implementations.ImplementationB1;
 import Interfaces.*;
 import servicelocator.*;
 /**

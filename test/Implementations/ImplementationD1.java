@@ -1,4 +1,4 @@
-package Implementations1;
+package Implementations;
 
 import Interfaces.InterfaceD;
 
@@ -7,7 +7,7 @@ import Interfaces.InterfaceD;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import Interfaces.*;
+
 /**
  *
  * @author Roger & Daniel
