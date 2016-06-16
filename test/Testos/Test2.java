@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import servicelocator2.*;
 import Factories2.*;
+import Implementations.ImplementationC1;
+import Implementations.ImplementationD1;
 import Interfaces.*;
 
 /**
@@ -96,7 +98,11 @@ public class Test2 {
     @Test
     public void CAfegirAmbSetServiceCorrectament() throws LocatorError{
     
+       // InterfaceC c= new ImplementationC1("Prova");
+        csl.setConstant(String.class, "Prova");
+        csl.setConstant(Integer.class, 4);
         afegirAmbSetService(csl);
+        
         
     }
     
@@ -110,7 +116,6 @@ public class Test2 {
     
     @Test
     public void CAfegirAmbSetConstantCorrectament() throws LocatorError{
-  
         afegirAmbSetConstant(csl);
         
     }
@@ -145,8 +150,10 @@ public class Test2 {
     }
     
     public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
-        s1.setConstant(, );
-        s1.setConstant(, );
+        
+        InterfaceD d= new ImplementationD1(5);
+        s1.setConstant(InterfaceD.class, d);
+        
     }
 
 }

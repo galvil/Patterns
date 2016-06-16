@@ -83,62 +83,22 @@ public class Test1 {
     
     @Test
     public void SIMgetObjectInstanciaCorrectaFactory() throws LocatorError{
-        ssl.setService("A", fA1);
-        ssl.setService("B", fB1);
-        ssl.setService("C", fC1);
-        ssl.setService("D", fD1);
-        ssl.setConstant("string", "string continguda en tipus InterfaceC");
-        ssl.setConstant("integer", 4);
-        Object objectA1;
-        Object objectB1;
-        Object objectC1;
-        Object objectD1;
-        Object objectA2;
-        Object objectB2;
-        Object objectC2;
-        Object objectD2;
-        objectA1 = ssl.getObject("A");
-        objectB1 = ssl.getObject("B");
-        objectC1 = ssl.getObject("C");
-        objectD1 = ssl.getObject("D");
-        objectA2 = ssl.getObject("A");
-        objectB2 = ssl.getObject("B");
-        objectC2 = ssl.getObject("C");
-        objectD2 = ssl.getObject("D");
-       /* assertNotEquals("Les instàncies creades de fA1 són diferents", objectA1, objectA2);
-        assertNotEquals("Les instàncies creades de fB1 són diferents", objectB1, objectB2);
-        assertNotEquals("Les instàncies creades de fC1 són diferents", objectC1, objectC2);
-        assertNotEquals("Les instàncies creades de fD1 són diferents", objectD1, objectD2);
-        */
-        assertFalse("Les instàncies creades de fA1 són diferents",objectA1.equals(objectA2));
-        assertFalse("Les instàncies creades de fB1 són diferents",objectB1.equals(objectB2));
-        assertFalse("Les instàncies creades de fC1 són diferents",objectC1.equals(objectC2));
-        assertFalse("Les instàncies creades de fD1 són diferents",objectD1.equals(objectD2));
-        
-        
+        afegirAmbSetService(ssl);
+        afegirCostantsNecessariesAServiceLocator(ssl);
+        creadordObjectesInicialitzatsComInstanciesDeFactories(ssl);
     }
     
     
     /*Testos de CachedServiceLocator començats amb C*/
     @Test
     public void CAfegirAmbSetServiceCorrectament() throws LocatorError{
-       afegirAmbSetService(csl);
-//FALTA AFEGIR COSES AL SERVICElOCATOR PER A QUE FUNCIONI LA LINIA COMENTADA
+        afegirAmbSetService(csl);
     }
     
     @Test (expected = LocatorError.class)
     public void CAfegirAmbSetServiceAfegit() throws LocatorError{
-
-        
-        csl.setService("fA1", fA1);
-        csl.setService("fA1", fA1);
-       // afegirAmbSetService(csl);
-       // afegirAmbSetService(csl);
-
-// s'HA DE TINDRE EN COMTE QUE AL CREAR OBJECTES ES NECESSITEN COSES DINS EL ServiceLocator, igual que a dalt.
-// ESTARIA BÑE FER UNA FUNCIÓ AUXILIAR QUE INICIALITZES EL ServiceLocator AMB AQUESTS PARÀMETRES
-// UN COP TINGUEM TOTS ELS MÈTODES AUXILIARS CREC QUE ES PODRIEN PASSAR TOTS A UN ARXIU DIFERENT PER NO TINDRE-HO TOT 
-// JUNT AMB ELS TESTOS (N'HI HA DE CREATS A BAIX DE TOT)
+        afegirAmbSetService(csl);
+        afegirAmbSetService(csl);
     }
     
     @Test
@@ -158,23 +118,37 @@ public class Test1 {
     }
     
     @Test
-    public void CgetObjectInstanciaCorrectaObject(){
-    //FALTA AFEGIR COSES AL SERVICElOCATOR PER A QUE FUNCIONI EL MÈTODE create
+    public void CgetObjectInstanciaCorrectaObject() throws LocatorError{
+        afegirAmbSetConstant(csl);
+        Object object1;
+        Object object2;
+        object1 = csl.getObject("o1");
+        object2 = csl.getObject("o2");
+        assertEquals(o1, object1);
+        assertEquals(o2, object2);
     }
     
     @Test
-    public void CgetObjectInstanciaCorrectaFactory(){
-//FALTA AFEGIR COSES AL SERVICElOCATOR PER A QUE FUNCIONI EL MÈTODE create    
+    public void CgetObjectInstanciaCorrectaFactory() throws LocatorError{
+        afegirAmbSetService(csl);
+        creadordObjectesInicialitzatsComInstanciesDeFactories(csl);
     }
 
 
-
-//    mètodes auxiliars
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////    Mètodes auxiliars    ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+    
     public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
-        s1.setService("fA1", fA1);
-        s1.setService("fB1", fB1);
-        s1.setService("fC1", fC1);
-        s1.setService("fD1", fD1);
+        if (s1.getClass().equals(csl.getClass())){
+            afegirCostantsNecessariesAServiceLocator(s1);
+        }
+        s1.setService("C", fC1);
+        s1.setService("D", fD1);
+        s1.setService("B", fB1);
+        s1.setService("A", fA1);
     }
     
     public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
@@ -187,4 +161,42 @@ public class Test1 {
         object = s1.getObject("fA4");
     }
     
+    public void afegirCostantsNecessariesAServiceLocator(ServiceLocator s1) throws LocatorError{
+        s1.setConstant("string", "string continguda en tipus InterfaceC");
+        s1.setConstant("integer", 4);
+        
+    }
+    
+    public void creadordObjectesInicialitzatsComInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
+        Object objectA1;
+        Object objectB1;
+        Object objectC1;
+        Object objectD1;
+        Object objectA2;
+        Object objectB2;
+        Object objectC2;
+        Object objectD2;
+        objectA1 = s1.getObject("A");
+        objectB1 = s1.getObject("B");
+        objectC1 = s1.getObject("C");
+        objectD1 = s1.getObject("D");
+        objectA2 = s1.getObject("A");
+        objectB2 = s1.getObject("B");
+        objectC2 = s1.getObject("C");
+        objectD2 = s1.getObject("D");
+        
+        if(s1.getClass().equals(ssl.getClass())){
+            assertFalse(objectA1.equals(objectA2));
+            assertFalse(objectB1.equals(objectB2));
+            assertFalse(objectC1.equals(objectC2));
+            assertFalse(objectD1.equals(objectD2));
+        }
+        
+        if(s1.getClass().equals(csl.getClass())){
+            assertEquals(objectA1, objectA2);
+            assertEquals(objectB1, objectB2);
+            assertEquals(objectC1, objectC2);
+            assertEquals(objectD1, objectD2);
+        }
+    }
 }
