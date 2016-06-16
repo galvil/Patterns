@@ -26,10 +26,8 @@ public class CachedServiceLocator implements ServiceLocator {
 
         if (hm.containsKey(name)) throw new LocatorError();
         else {
-            //Object o = factory.create(this); //falla al create!!!! SI ho descomentem peta
-            hm.put(name,factory);
-            //hm.put(name, o);
-            //this.setConstant(name, o);
+            Object o = factory.create(this); //falla al create!!!! SI ho descomentem peta
+            this.setConstant(name, o);
         }
     }
 
