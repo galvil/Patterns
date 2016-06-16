@@ -14,8 +14,11 @@ import servicelocator2.*;
 public class FactoryD1 implements Factory<InterfaceD>{
 
     @Override
-    public InterfaceD create(ServiceLocator s1) throws LocatorError {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public InterfaceD create(ServiceLocator s) throws LocatorError {
+
+        int i = s.getObject(Integer.class);
+        return new ImplementationD1(i);
+
     }
 
  
