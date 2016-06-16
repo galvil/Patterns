@@ -85,7 +85,7 @@ public class Test1 {
     public void SIMgetObjectInstanciaCorrectaFactory() throws LocatorError{
         afegirAmbSetService(ssl);
         afegirCostantsNecessariesAServiceLocator(ssl);
-        creadordObjectesInicialitzatsComInstanciesDeFactories(ssl);
+        creadordInstanciesDeFactories(ssl);
     }
     
     
@@ -131,7 +131,7 @@ public class Test1 {
     @Test
     public void CgetObjectInstanciaCorrectaFactory() throws LocatorError{
         afegirAmbSetService(csl);
-        creadordObjectesInicialitzatsComInstanciesDeFactories(csl);
+        creadordInstanciesDeFactories(csl);
     }
 
 
@@ -166,7 +166,7 @@ public class Test1 {
         s1.setConstant("integer", 4);
     }
     
-    public void creadordObjectesInicialitzatsComInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
+    public void creadordInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
         Object objectA1;
         Object objectB1;
         Object objectC1;
