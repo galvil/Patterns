@@ -73,14 +73,14 @@ public class Test2 {
     @Test (expected = LocatorError.class)
     public void SIMAfegirAmbSetConstantAfegit() throws LocatorError{
     
-        afegirAmbSetConstant(csl);
-        afegirAmbSetConstant(csl);
+        afegirAmbSetConstant(ssl);
+        afegirAmbSetConstant(ssl);
         
     }
     
     @Test (expected = LocatorError.class)
     public void SIMgetObjectAmbErrorNoObjecteNiFactory() throws LocatorError{
-        
+        ssl.getObject(String.class);
     }
     
     @Test
@@ -98,10 +98,7 @@ public class Test2 {
     @Test
     public void CAfegirAmbSetServiceCorrectament() throws LocatorError{
     
-       // InterfaceC c= new ImplementationC1("Prova");
-        csl.setConstant(String.class, "Prova");
-        csl.setConstant(Integer.class, 4);
-        afegirAmbSetService(csl);
+       afegirAmbSetService(csl);
         
         
     }
@@ -130,7 +127,7 @@ public class Test2 {
     
     @Test (expected = LocatorError.class)
     public void CgetObjectAmbErrorNoObjecteNiFactory() throws LocatorError{
-        
+        csl.getObject(String.class);
     }
     
     @Test
@@ -143,10 +140,17 @@ public class Test2 {
     }
     
     
-    
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////    Mètodes auxiliars    ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
     public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
-        s1.setService(InterfaceD.class, fA1);
-        s1.setService(InterfaceC.class, fB1);  
+        if (s1.getClass().equals(csl.getClass())){
+            afegirCostantsNecessariesAServiceLocator(s1);
+        }
+        s1.setService(InterfaceA.class, fA1);
+        s1.setService(InterfaceB.class, fB1);  
     }
     
     public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
@@ -154,6 +158,11 @@ public class Test2 {
         InterfaceD d= new ImplementationD1(5);
         s1.setConstant(InterfaceD.class, d);
         
+    }
+    
+    public void afegirCostantsNecessariesAServiceLocator(ServiceLocator s1) throws LocatorError{
+        s1.setConstant(String.class, "string continguda en tipus InterfaceC");
+        s1.setConstant(int.class, 4);
     }
 
 }

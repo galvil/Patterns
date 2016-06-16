@@ -164,7 +164,6 @@ public class Test1 {
     public void afegirCostantsNecessariesAServiceLocator(ServiceLocator s1) throws LocatorError{
         s1.setConstant("string", "string continguda en tipus InterfaceC");
         s1.setConstant("integer", 4);
-        
     }
     
     public void creadordObjectesInicialitzatsComInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
