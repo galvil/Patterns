@@ -85,6 +85,7 @@ public class Test2 {
     
     @Test
     public void SIMgetObjectInstanciaCorrectaFactory() throws LocatorError{
+        afegirAmbSetConstant(ssl);
         afegirAmbSetService(ssl);
         creadordInstanciesDeFactories(ssl);
     }
