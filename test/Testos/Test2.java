@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import servicelocator2.*;
 import Factories2.*;
+import Interfaces.*;
 
 /**
  *
@@ -41,27 +42,38 @@ public class Test2 {
         o2 = new Object();
         
         
+        
     }
     
     /*Testos de SimpleServiceLocator començats amb SIM*/
     @Test
     public void SIMAfegirAmbSetServiceCorrectament() throws LocatorError{
       
+        afegirAmbSetService(ssl);
+    
     }
     
     @Test (expected = LocatorError.class)
     public void SIMAfegirAmbSetServiceAfegit() throws LocatorError{
      
+        afegirAmbSetService(ssl);
+        afegirAmbSetService(ssl);
+        
     }
     
     @Test
     public void SIMAfegirAmbSetConstantCorrectament() throws LocatorError{
        
+        afegirAmbSetConstant(csl);
+        
     }
     
     @Test (expected = LocatorError.class)
     public void SIMAfegirAmbSetConstantAfegit() throws LocatorError{
     
+        afegirAmbSetConstant(csl);
+        afegirAmbSetConstant(csl);
+        
     }
     
     @Test (expected = LocatorError.class)
@@ -84,21 +96,31 @@ public class Test2 {
     @Test
     public void CAfegirAmbSetServiceCorrectament() throws LocatorError{
     
+        afegirAmbSetService(csl);
+        
     }
     
     @Test (expected = LocatorError.class)
     public void CAfegirAmbSetServiceAfegit() throws LocatorError{
 
+        afegirAmbSetService(csl);
+        afegirAmbSetService(csl);
+        
     }
     
     @Test
     public void CAfegirAmbSetConstantCorrectament() throws LocatorError{
   
+        afegirAmbSetConstant(csl);
+        
     }
     
     @Test (expected = LocatorError.class)
     public void CAfegirAmbSetConstantAfegit() throws LocatorError{
   
+        afegirAmbSetConstant(csl);
+        afegirAmbSetConstant(csl);
+        
     }
     
     @Test (expected = LocatorError.class)
@@ -113,6 +135,18 @@ public class Test2 {
     
     @Test
     public void CgetObjectInstanciaCorrectaFactory(){
+    }
+    
+    
+    
+    public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
+        s1.setService(InterfaceD.class, fA1);
+        s1.setService(InterfaceC.class, fB1);  
+    }
+    
+    public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
+        s1.setConstant(, );
+        s1.setConstant(, );
     }
 
 }
