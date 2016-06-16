@@ -15,7 +15,7 @@ import java.util.Map;
 public class SimpleServiceLocator implements ServiceLocator {
     
     private Map<Class,Factory> mapaFactories;
-    private Map<Class,Object> mapaConstants; // fuck this shit
+    private Map<Class,Object> mapaConstants;
 
      public SimpleServiceLocator(){
         mapaFactories = new HashMap<>();

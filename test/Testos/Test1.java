@@ -73,12 +73,8 @@ public class Test1 {
     @Test
     public void SIMgetObjectInstanciaCorrectaObject() throws LocatorError{
         afegirAmbSetConstant(ssl);
-        Object object1;
-        Object object2;
-        object1 = ssl.getObject("o1");
-        object2 = ssl.getObject("o2");
-        assertEquals(o1, object1);
-        assertEquals(o2, object2);
+        getObjectGenericAmbInsercióDObjectes(ssl);
+        
     }
     
     @Test
@@ -120,12 +116,7 @@ public class Test1 {
     @Test
     public void CgetObjectInstanciaCorrectaObject() throws LocatorError{
         afegirAmbSetConstant(csl);
-        Object object1;
-        Object object2;
-        object1 = csl.getObject("o1");
-        object2 = csl.getObject("o2");
-        assertEquals(o1, object1);
-        assertEquals(o2, object2);
+        getObjectGenericAmbInsercióDObjectes(csl);
     }
     
     @Test
@@ -197,5 +188,16 @@ public class Test1 {
             assertEquals(objectC1, objectC2);
             assertEquals(objectD1, objectD2);
         }
+    }
+    
+    public void getObjectGenericAmbInsercióDObjectes(ServiceLocator s1) throws LocatorError{
+        Object object1;
+        Object object2;
+        object1 = s1.getObject("o1");
+        object2 = s1.getObject("o2");
+        
+        assertEquals(o1, object1);
+        assertEquals(o2, object2);
+        
     }
 }

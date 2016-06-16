@@ -12,6 +12,8 @@ import Factories2.*;
 import Implementations.ImplementationC1;
 import Implementations.ImplementationD1;
 import Interfaces.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  *
@@ -77,12 +79,14 @@ public class Test2 {
     
     @Test
     public void SIMgetObjectInstanciaCorrectaObject() throws LocatorError{
-
+        afegirAmbSetConstant(ssl);
+        getObjectGenericAmbInsercioDObjectes(ssl);
     }
     
     @Test
     public void SIMgetObjectInstanciaCorrectaFactory() throws LocatorError{
-        
+        afegirAmbSetService(ssl);
+        creadordInstanciesDeFactories(ssl);
     }
     
     
@@ -122,15 +126,14 @@ public class Test2 {
     @Test
     public void CgetObjectInstanciaCorrectaObject() throws LocatorError{
         afegirAmbSetConstant(csl);
-        Object object1;
-        Object object2;
-        object1 = csl.getObject(InterfaceC.class);
-        object2 = csl.getObject(InterfaceD.class);
+        getObjectGenericAmbInsercioDObjectes(csl);
         
     }
     
     @Test
-    public void CgetObjectInstanciaCorrectaFactory(){
+    public void CgetObjectInstanciaCorrectaFactory() throws LocatorError{
+        afegirAmbSetService(csl);
+        creadordInstanciesDeFactories(csl);
     }
     
     
@@ -141,7 +144,7 @@ public class Test2 {
 ////////////////////////////////////////////////////////////////////////////////
     public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
         if (s1.getClass().equals(csl.getClass())){
-            afegirCostantsNecessariesAServiceLocator(s1);
+            afegirAmbSetConstant(s1);
         }
         s1.setService(InterfaceC.class, fC1);
         s1.setService(InterfaceD.class, fD1);
@@ -150,13 +153,50 @@ public class Test2 {
     }
     
     public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
-        s1.setConstant(InterfaceC.class, c);
-        s1.setConstant(InterfaceD.class, d);
-    }
-    
-    public void afegirCostantsNecessariesAServiceLocator(ServiceLocator s1) throws LocatorError{
-        s1.setConstant(String.class, "string continguda en tipus InterfaceC");
+        s1.setConstant(String.class, "String prova");
         s1.setConstant(Integer.class, 4);
     }
-
+    
+    public void getObjectGenericAmbInsercioDObjectes(ServiceLocator s1) throws LocatorError{
+        Object object1;
+        Object object2;
+        object1 = s1.getObject(String.class);
+        object2 = s1.getObject(Integer.class);
+        
+        assertEquals("String prova", object1);
+        assertEquals(4, object2);
+    }
+    
+    public void creadordInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
+        Object objectA1;
+        Object objectB1;
+        Object objectC1;
+        Object objectD1;
+        Object objectA2;
+        Object objectB2;
+        Object objectC2;
+        Object objectD2;
+        objectA1 = s1.getObject(InterfaceA.class);
+        objectB1 = s1.getObject(InterfaceB.class);
+        objectC1 = s1.getObject(InterfaceC.class);
+        objectD1 = s1.getObject(InterfaceD.class);
+        objectA2 = s1.getObject(InterfaceA.class);
+        objectB2 = s1.getObject(InterfaceB.class);
+        objectC2 = s1.getObject(InterfaceC.class);
+        objectD2 = s1.getObject(InterfaceD.class);
+        
+        if(s1.getClass().equals(ssl.getClass())){
+            assertFalse(objectA1.equals(objectA2));
+            assertFalse(objectB1.equals(objectB2));
+            assertFalse(objectC1.equals(objectC2));
+            assertFalse(objectD1.equals(objectD2));
+        }
+        
+        if(s1.getClass().equals(csl.getClass())){
+            assertEquals(objectA1, objectA2);
+            assertEquals(objectB1, objectB2);
+            assertEquals(objectC1, objectC2);
+            assertEquals(objectD1, objectD2);
+        }
+    }
 }
