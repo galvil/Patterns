@@ -1,6 +1,3 @@
-package servicelocator2;
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +8,9 @@ package servicelocator2;
  *
  * @author Roger & Daniel
  */
+
+package servicelocator2;
+
 public class LocatorError extends Exception{
     
     public LocatorError (){

@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Factories2;
-import Implementations.ImplementationC1;
-import Interfaces.*;
-import servicelocator2.*;
+
 /**
  *
  * @author Roger & Daniel
  */
+
+package Factories2;
+import Implementations.ImplementationC1;
+import Interfaces.*;
+import servicelocator2.*;
+
 public class FactoryC1 implements Factory<InterfaceC> {
 
     @Override

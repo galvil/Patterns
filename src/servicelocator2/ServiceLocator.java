@@ -1,7 +1,3 @@
-package servicelocator2;
-
-import servicelocator.*;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +8,9 @@ import servicelocator.*;
  *
  * @author Roger & Daniel
  */
+
+package servicelocator2;
+
 public interface ServiceLocator {
     
     <T> void setService(Class<T> klass, Factory<T> factory) throws LocatorError;

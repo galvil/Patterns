@@ -1,8 +1,3 @@
-package servicelocator;
-
-
-import java.util.HashMap;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +8,10 @@ import java.util.HashMap;
  *
  * @author Roger & Daniel
  */
+
+package servicelocator;
+import java.util.HashMap;
+
 public class SimpleServiceLocator implements ServiceLocator {
 
     HashMap <String,Factory> hm;

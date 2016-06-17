@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Testos;
 
+/**
+ *
+ * @author Roger & Daniel
+ */
+
+package Testos;
 import org.junit.Before;
 import org.junit.Test;
 import servicelocator2.*;
@@ -15,10 +20,6 @@ import Interfaces.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-/**
- *
- * @author Roger & Daniel
- */
 public class Test2 {
     
     private ServiceLocator ssl;

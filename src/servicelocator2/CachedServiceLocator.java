@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servicelocator2;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
  * @author Roger & Daniel
  */
+
+package servicelocator2;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CachedServiceLocator implements ServiceLocator {
 
     Map<Class,Object> mapa;

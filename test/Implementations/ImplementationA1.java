@@ -1,6 +1,3 @@
-package Implementations;
-import Interfaces.*;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +8,10 @@ import Interfaces.*;
  *
  * @author Roger & Daniel
  */
+
+package Implementations;
+import Interfaces.*;
+
 public class ImplementationA1 implements InterfaceA{
     private InterfaceB b;
     private InterfaceC c;

@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/**
+ *
+ * @author Roger & Daniel
+ */
+
 package Testos;
 import Factories1.*;
 import servicelocator.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-/**
- *
- * @author Roger & Daniel
- */
+
 public class Test1 {
     
     private ServiceLocator ssl;

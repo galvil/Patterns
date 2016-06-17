@@ -1,9 +1,3 @@
-package Factories1;
-
-
-import Implementations.ImplementationA1;
-import Interfaces.*;
-import servicelocator.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +8,11 @@ import servicelocator.*;
  *
  * @author Roger & Daniel
  */
+
+package Factories1;
+import Implementations.ImplementationA1;
+import Interfaces.*;
+import servicelocator.*;
 
 public class FactoryA1 implements Factory {
   @Override
