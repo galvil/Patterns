@@ -121,7 +121,8 @@ public class Test2 {
     
     @Test (expected = LocatorError.class)
     public void CgetObjectAmbErrorNoObjecteNiFactory() throws LocatorError{
-        csl.getObject(String.class);
+        Object object;
+        object = csl.getObject(String.class);
     }
     
     @Test

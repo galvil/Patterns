@@ -50,8 +50,8 @@ public class Test1 {
     
     @Test (expected = LocatorError.class)
     public void SIMAfegirAmbSetServiceAfegit() throws LocatorError{
-        ssl.setService("fA1", fA1);
-        ssl.setService("fA1", fA1);
+        afegirAmbSetService(ssl);
+        afegirAmbSetService(ssl);
     }
     
     @Test
