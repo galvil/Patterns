@@ -24,10 +24,6 @@ public class Test1 {
     private Factory fB1;
     private Factory fC1;
     private Factory fD1;
-    private Object o1;
-    private Object o2;
-    
-    
     
     @Before
     public void Test1(){
@@ -39,10 +35,6 @@ public class Test1 {
         fB1 = new FactoryB1();
         fC1 = new FactoryC1();
         fD1 = new FactoryD1();
-        
-        o1 = new Object();
-        o2 = new Object();
-            
     }
     
     /*Testos de SimpleServiceLocator començats amb SIM*/
@@ -83,7 +75,7 @@ public class Test1 {
     @Test
     public void SIMgetObjectInstanciaCorrectaFactory() throws LocatorError{
         afegirAmbSetService(ssl);
-        afegirCostantsNecessariesAServiceLocator(ssl);
+        afegirAmbSetConstant(ssl);
         creadordInstanciesDeFactories(ssl);
     }
     
@@ -137,7 +129,7 @@ public class Test1 {
     
     public void afegirAmbSetService(ServiceLocator s1) throws LocatorError{
         if (s1.getClass().equals(csl.getClass())){
-            afegirCostantsNecessariesAServiceLocator(s1);
+            afegirAmbSetConstant(s1);
         }
         s1.setService("C", fC1);
         s1.setService("D", fD1);
@@ -146,18 +138,13 @@ public class Test1 {
     }
     
     public void afegirAmbSetConstant(ServiceLocator s1) throws LocatorError{
-        s1.setConstant("o1", o1);
-        s1.setConstant("o2", o2);
+        s1.setConstant("string", "string continguda en tipus InterfaceC");
+        s1.setConstant("integer", 4);
     }
     
     public void getObjectInexistent (ServiceLocator s1) throws LocatorError{
         Object object;
         object = s1.getObject("fA4");
-    }
-    
-    public void afegirCostantsNecessariesAServiceLocator(ServiceLocator s1) throws LocatorError{
-        s1.setConstant("string", "string continguda en tipus InterfaceC");
-        s1.setConstant("integer", 4);
     }
     
     public void creadordInstanciesDeFactories(ServiceLocator s1) throws LocatorError{
@@ -196,11 +183,11 @@ public class Test1 {
     public void getObjectGenericAmbInsercióDObjectes(ServiceLocator s1) throws LocatorError{
         Object object1;
         Object object2;
-        object1 = s1.getObject("o1");
-        object2 = s1.getObject("o2");
+        object1 = s1.getObject("string");
+        object2 = s1.getObject("integer");
         
-        assertEquals(o1, object1);
-        assertEquals(o2, object2);
+        assertEquals("string continguda en tipus InterfaceC", object1);
+        assertEquals(4, object2);
         
     }
 }
